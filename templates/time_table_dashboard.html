@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="container">
+    {% for store in part_time_dashboard %}
+
+    <div class="chart-wrapper">
+        <div>{{store.store}}</div>
+        <ul class="chart-values ul-gantt">
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+        </ul>
+        
+        <ul class="chart-bars ul-gantt">
+            {% for row in store.rows %}
+                <li data-duration="{{row.start_time}}-{{row.end_time}}" data-color="#59a627">{{row.name}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

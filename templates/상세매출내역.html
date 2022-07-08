@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block content %}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">매출 관리</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{{url_for('index')}}">Dashboard</a></li>
+            <li class="breadcrumb-item active">매출 관리</li>
+            <li class="breadcrumb-item active">매출 상세 내역</li>
+        </ol>
+    </div>
+
+        <div class="container-fluid px-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    매출 상세 내역
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>시각</th>
+                                <th>항목</th>
+                                <th>수량</th>
+                                <th>플랫폼</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>시각</th>
+                                <th>항목</th>
+                                <th>수량</th>
+                                <th>플랫폼</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            {% for sales in sales_detail_data %}
+                            <tr>
+                                <td>{{sales.Time}}</td>
+                                <td>{{sales.Item}}</td>
+                                <td>{{sales.Quantity}}</td>
+                                <td>{{sales.Platform}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+</main>
+
+{% endblock %}
+

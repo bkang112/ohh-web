@@ -1,0 +1,43 @@
+
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<!--시작-->
+<div class="contianer">
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-inverse">
+            <tr>
+                <th>User ID</th>
+                <th>Account</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in user_info %}
+            <form method="post">
+            <tr>
+                <input name="user_id" type="hidden" value="{{user.user_id}}">
+                <td>{{user.user_id}}</td>
+                <td>
+                    <input name="balance" type="number" value = {{user.balance}}>
+                </td>
+                <td>
+                    <select name="role">
+                        <option value="admin" {{user.option.admin}}>admin</option>
+                        <option value="provider" {{user.option.provider}}>provider</option>
+                        <option value="buyer" {{user.option.buyer}}>buyer</option>
+                    </select>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fas fa-save"></i>
+                    </button>
+                </td>
+            </tr>
+            </form>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
