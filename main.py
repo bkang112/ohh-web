@@ -427,6 +427,7 @@ def change_order_status():
 
 if __name__=="__main__":
     app.secret_key = "superSecrectKey"
+    app.config['SESSION_TYPE'] = 'filesystem'
     app.run(host="127.0.0.1", port=5000, use_reloader=True, debug=True)
 
 
