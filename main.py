@@ -11,7 +11,6 @@ DATABASE = "ohh-web.db"
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SECRET_KEY'] = 'superSecrectKey'
-sess = Session()
 
 @app.route("/")
 def index():
